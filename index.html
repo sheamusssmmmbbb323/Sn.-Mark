@@ -1,0 +1,1491 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>الفن المسيحي المبكر | Early Christian Art</title>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@300;400;600;700&family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #8B4513;
+            --primary-light: #A0522D;
+            --secondary: #DAA520;
+            --gold: #FFD700;
+            --dark: #1a1a1a;
+            --darker: #0f0f0f;
+            --light: #f5f0e8;
+            --cream: #faf6ef;
+            --text: #2c2c2c;
+            --text-light: #666;
+            --border: #d4c4a8;
+            --shadow: rgba(0,0,0,0.15);
+            --shadow-lg: rgba(0,0,0,0.25);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: var(--darker);
+            color: var(--light);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body[dir="ltr"] { font-family: 'Inter', sans-serif; }
+        body[dir="ltr"] .hero-title,
+        body[dir="ltr"] .section-title,
+        body[dir="ltr"] .section-label,
+        body[dir="ltr"] .timeline-date,
+        body[dir="ltr"] .gallery-title,
+        body[dir="ltr"] .lightbox-title,
+        body[dir="ltr"] .course-title,
+        body[dir="ltr"] .footer-logo,
+        body[dir="ltr"] .loading-text,
+        body[dir="ltr"] .hero-subtitle,
+        body[dir="ltr"] .logo { font-family: 'Playfair Display', serif; }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--darker); }
+        ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 4px; }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(15, 15, 15, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(218, 165, 32, 0.2);
+            padding: 0 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-family: 'Amiri', serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--gold);
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .logo i { font-size: 1.6rem; color: var(--secondary); }
+
+        .nav-links {
+            display: flex;
+            gap: 0.5rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            padding: 0.5rem 0.8rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            position: relative;
+            white-space: nowrap;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--gold);
+            background: rgba(218, 165, 32, 0.1);
+        }
+
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 2px;
+            background: var(--secondary);
+            border-radius: 2px;
+        }
+
+        .lang-switcher {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(218, 165, 32, 0.1);
+            border: 1px solid rgba(218, 165, 32, 0.3);
+            border-radius: 25px;
+            padding: 0.3rem 0.6rem;
+            cursor: pointer;
+            color: var(--gold);
+            font-weight: 700;
+            font-size: 0.8rem;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .lang-switcher:hover {
+            background: rgba(218, 165, 32, 0.2);
+            transform: scale(1.05);
+        }
+
+        .lang-switcher i { font-size: 0.9rem; }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--gold);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .hero {
+            min-height: 100vh;
+            min-height: 100dvh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: linear-gradient(135deg, var(--darker) 0%, #2a1810 50%, var(--dark) 100%);
+            overflow: hidden;
+            padding: 100px 1.5rem 3rem;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y=".9em" font-size="90">✝</text></svg>') center/300px repeat;
+            opacity: 0.03;
+            animation: float 20s linear infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-100px); }
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 900px;
+            z-index: 2;
+            width: 100%;
+        }
+
+        .hero-subtitle {
+            font-family: 'Amiri', serif;
+            font-size: 1.1rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+            letter-spacing: 3px;
+        }
+
+        .hero-title {
+            font-family: 'Amiri', serif;
+            font-size: clamp(2rem, 6vw, 4rem);
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            text-shadow: 0 4px 20px rgba(255, 215, 0, 0.2);
+        }
+
+        .hero-desc {
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+            color: rgba(245, 240, 232, 0.8);
+            line-height: 1.8;
+            margin-bottom: 2.5rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.9rem 2rem;
+            border-radius: 50px;
+            font-family: inherit;
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            border: 2px solid transparent;
+            white-space: nowrap;
+            touch-action: manipulation;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: var(--light);
+            border-color: var(--primary);
+            box-shadow: 0 4px 15px rgba(139, 69, 19, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(139, 69, 19, 0.6);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--gold);
+            border-color: var(--secondary);
+        }
+
+        .btn-outline:hover {
+            background: rgba(218, 165, 32, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .hero-scroll {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+
+        .hero-scroll i { font-size: 2rem; color: var(--secondary); }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
+        }
+
+        .section {
+            padding: 5rem 1.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-label {
+            font-family: 'Amiri', serif;
+            font-size: 1rem;
+            color: var(--secondary);
+            letter-spacing: 3px;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title {
+            font-family: 'Amiri', serif;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+
+        .section-desc {
+            color: rgba(245, 240, 232, 0.7);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.7;
+            font-size: clamp(0.85rem, 2vw, 1rem);
+        }
+
+        .gallery-section { background: var(--dark); }
+
+        .gallery-filters {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.5rem 1.2rem;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(218, 165, 32, 0.3);
+            color: var(--light);
+            border-radius: 25px;
+            cursor: pointer;
+            font-family: inherit;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            touch-action: manipulation;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: var(--light);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            background: var(--darker);
+            border: 1px solid rgba(218, 165, 32, 0.1);
+            transition: all 0.4s ease;
+            aspect-ratio: 4/3;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+            border-color: rgba(218, 165, 32, 0.4);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img { transform: scale(1.05); }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1.5rem;
+            background: linear-gradient(transparent, rgba(0,0,0,0.9));
+            transform: translateY(20px);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .gallery-title {
+            font-family: 'Amiri', serif;
+            font-size: 1.1rem;
+            color: var(--gold);
+            margin-bottom: 0.3rem;
+        }
+
+        .gallery-meta {
+            font-size: 0.8rem;
+            color: rgba(245, 240, 232, 0.7);
+        }
+
+        .gallery-tag {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(139, 69, 19, 0.9);
+            color: var(--light);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+
+        body[dir="ltr"] .gallery-tag { right: auto; left: 1rem; }
+
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.95);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+        }
+
+        .lightbox.active { display: flex; }
+
+        .lightbox-content {
+            max-width: 900px;
+            width: 100%;
+            background: var(--dark);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(218, 165, 32, 0.2);
+            max-height: 90vh;
+            max-height: 90dvh;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .lightbox-img {
+            width: 100%;
+            max-height: 50vh;
+            object-fit: contain;
+            background: var(--darker);
+        }
+
+        .lightbox-info { padding: 1.5rem; }
+
+        .lightbox-title {
+            font-family: 'Amiri', serif;
+            font-size: clamp(1.3rem, 3vw, 1.8rem);
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+        }
+
+        .lightbox-meta {
+            color: var(--secondary);
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+        }
+
+        .lightbox-desc {
+            color: rgba(245, 240, 232, 0.8);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            font-size: clamp(0.85rem, 2vw, 0.95rem);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: rgba(255,255,255,0.1);
+            border: none;
+            color: var(--light);
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.3rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            touch-action: manipulation;
+        }
+
+        body[dir="ltr"] .lightbox-close { left: auto; right: 1rem; }
+
+        .lightbox-close:hover { background: var(--primary); }
+
+        .courses-section { background: var(--darker); }
+
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .course-card {
+            background: var(--dark);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(218, 165, 32, 0.1);
+            transition: all 0.4s ease;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .course-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+            border-color: rgba(218, 165, 32, 0.3);
+        }
+
+        .course-header {
+            padding: 1.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            position: relative;
+            overflow: hidden;
+        }
+
+        .course-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255,255,255,0.05);
+            transform: rotate(45deg);
+        }
+
+        body[dir="ltr"] .course-header::before { right: auto; left: -50%; }
+
+        .course-icon {
+            font-size: 2rem;
+            color: var(--gold);
+            margin-bottom: 0.8rem;
+        }
+
+        .course-title {
+            font-family: 'Amiri', serif;
+            font-size: 1.2rem;
+            color: var(--light);
+            margin-bottom: 0.3rem;
+        }
+
+        .course-provider {
+            font-size: 0.8rem;
+            color: rgba(245, 240, 232, 0.8);
+        }
+
+        .course-body {
+            padding: 1.2rem 1.5rem;
+            flex: 1;
+        }
+
+        .course-desc {
+            color: rgba(245, 240, 232, 0.7);
+            font-size: 0.9rem;
+            line-height: 1.7;
+            margin-bottom: 1.2rem;
+        }
+
+        .course-meta {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .course-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.8rem;
+            color: var(--secondary);
+        }
+
+        .course-footer {
+            padding: 1rem 1.5rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .course-price {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--gold);
+        }
+
+        .course-price.free { color: #4CAF50; }
+
+        .course-link {
+            padding: 0.6rem 1.2rem;
+            background: var(--secondary);
+            color: var(--dark);
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            touch-action: manipulation;
+        }
+
+        .course-link:hover {
+            background: var(--gold);
+            transform: scale(1.05);
+        }
+
+        .course-badge {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: var(--gold);
+            color: var(--dark);
+            padding: 0.25rem 0.7rem;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 700;
+        }
+
+        body[dir="ltr"] .course-badge { left: auto; right: 1rem; }
+
+        .timeline-section { background: var(--dark); }
+
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 50%;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--primary), var(--secondary));
+            transform: translateX(50%);
+        }
+
+        .timeline-item {
+            display: flex;
+            justify-content: flex-end;
+            padding-right: 2rem;
+            position: relative;
+            margin-bottom: 2rem;
+            width: 50%;
+        }
+
+        .timeline-item:nth-child(even) {
+            justify-content: flex-start;
+            padding-right: 0;
+            padding-left: 2rem;
+            margin-left: 50%;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            right: -8px;
+            top: 0;
+            width: 16px;
+            height: 16px;
+            background: var(--secondary);
+            border-radius: 50%;
+            border: 3px solid var(--dark);
+        }
+
+        .timeline-item:nth-child(even) .timeline-dot { right: auto; left: -8px; }
+
+        .timeline-content {
+            background: var(--darker);
+            padding: 1.2rem;
+            border-radius: 12px;
+            border: 1px solid rgba(218, 165, 32, 0.1);
+            max-width: 350px;
+        }
+
+        .timeline-date {
+            font-family: 'Amiri', serif;
+            color: var(--secondary);
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-text {
+            color: rgba(245, 240, 232, 0.8);
+            font-size: 0.85rem;
+            line-height: 1.6;
+        }
+
+        .footer {
+            background: var(--darker);
+            border-top: 1px solid rgba(218, 165, 32, 0.1);
+            padding: 3rem 1.5rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            font-family: 'Amiri', serif;
+            font-size: 1.4rem;
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+
+        .footer-text {
+            color: rgba(245, 240, 232, 0.6);
+            font-size: 0.85rem;
+            line-height: 1.7;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .footer-links a:hover { color: var(--gold); }
+
+        @media (max-width: 768px) {
+            .nav-container { height: 60px; }
+            .logo { font-size: 1rem; gap: 8px; }
+            .logo i { font-size: 1.3rem; }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                right: 0;
+                background: var(--darker);
+                flex-direction: column;
+                padding: 1rem;
+                gap: 0.5rem;
+                border-bottom: 1px solid rgba(218, 165, 32, 0.2);
+            }
+
+            .nav-links.active { display: flex; }
+
+            .nav-links a {
+                padding: 0.8rem 1rem;
+                width: 100%;
+                text-align: center;
+            }
+
+            .mobile-menu-btn { display: block; }
+
+            .hero {
+                padding: 80px 1rem 2rem;
+                min-height: 100svh;
+            }
+
+            .btn { padding: 0.8rem 1.5rem; font-size: 0.9rem; }
+
+            .timeline::before { right: 20px; }
+            body[dir="ltr"] .timeline::before { right: auto; left: 20px; }
+
+            .timeline-item,
+            .timeline-item:nth-child(even) {
+                width: 100%;
+                margin-left: 0;
+                padding-right: 3rem;
+                padding-left: 0;
+                justify-content: flex-end;
+            }
+
+            body[dir="ltr"] .timeline-item,
+            body[dir="ltr"] .timeline-item:nth-child(even) {
+                padding-right: 0;
+                padding-left: 3rem;
+                justify-content: flex-start;
+            }
+
+            .timeline-item:nth-child(even) .timeline-dot,
+            .timeline-dot { right: 12px; left: auto; }
+
+            body[dir="ltr"] .timeline-item:nth-child(even) .timeline-dot,
+            body[dir="ltr"] .timeline-dot { right: auto; left: 12px; }
+
+            .courses-grid { grid-template-columns: 1fr; }
+
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 1rem;
+            }
+
+            .section { padding: 3rem 1rem; }
+
+            .gallery-filters { gap: 0.4rem; }
+            .filter-btn { padding: 0.4rem 0.9rem; font-size: 0.8rem; }
+
+            .course-footer {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0.8rem;
+            }
+
+            .course-link { text-align: center; justify-content: center; }
+
+            .lightbox-content { max-height: 85vh; max-height: 85dvh; }
+        }
+
+        @media (max-width: 480px) {
+            .gallery-grid { grid-template-columns: 1fr; }
+            .hero-buttons { flex-direction: column; width: 100%; }
+            .btn { width: 100%; justify-content: center; }
+            .courses-grid { grid-template-columns: 1fr; }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--darker);
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 1rem;
+            transition: opacity 0.5s ease;
+        }
+
+        .loading-overlay.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid rgba(218, 165, 32, 0.2);
+            border-top-color: var(--secondary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        .loading-text {
+            font-family: 'Amiri', serif;
+            color: var(--secondary);
+            font-size: 1.1rem;
+        }
+
+        @media (hover: none) {
+            .gallery-overlay {
+                transform: translateY(0);
+                opacity: 1;
+                background: linear-gradient(transparent 30%, rgba(0,0,0,0.85));
+                padding: 1rem;
+            }
+            .gallery-item:hover { transform: none; }
+            .gallery-item:active { transform: scale(0.98); }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+<base target="_blank">
+<base target="_blank">
+</head>
+<body dir="ltr">
+    <div class="loading-overlay" id="loading">
+        <div class="loading-spinner"></div>
+        <div class="loading-text" data-ar="جارٍ التحميل..." data-en="Loading...">Loading...</div>
+    </div>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <i class="fas fa-cross"></i>
+                <span data-ar="الفن المسيحي المبكر" data-en="Early Christian Art">Early Christian Art</span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" class="active" data-ar="الرئيسية" data-en="Home">Home</a></li>
+                <li><a href="#gallery" data-ar="المعرض" data-en="Gallery">Gallery</a></li>
+                <li><a href="#timeline" data-ar="التاريخ" data-en="Timeline">Timeline</a></li>
+                <li><a href="#courses" data-ar="الكورسات" data-en="Courses">Courses</a></li>
+                <li>
+                    
+                </li>
+            </ul>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-subtitle" data-ar="اكتشف جمال الإيمان" data-en="Discover the Beauty of Faith">Discover the Beauty of Faith</div>
+            <h1 class="hero-title" data-ar="الفن المسيحي المبكر" data-en="Early Christian Art">Early Christian Art</h1>
+            <p class="hero-desc" data-ar="رحلة عبر الزمن لاستكشاف أقدم الأعمال الفنية المسيحية من القرن الثاني حتى السابع الميلادي. من الكاتاكومب الرومانية إلى أيقونات سيناء، اكتشف كيف عبر المؤمنون الأوائل عن إيمانهم بالفن." data-en="A journey through time to explore the earliest Christian artworks from the 2nd to the 7th century. From the Roman catacombs to the icons of Sinai, discover how the first believers expressed their faith through art.">
+                A journey through time to explore the earliest Christian artworks from the 2nd to the 7th century. From the Roman catacombs to the icons of Sinai, discover how the first believers expressed their faith through art.
+            </p>
+            <div class="hero-buttons">
+                <a href="#gallery" class="btn btn-primary">
+                    <i class="fas fa-images"></i>
+                    <span data-ar="استكشف المعرض" data-en="Explore Gallery">Explore Gallery</span>
+                </a>
+                <a href="#courses" class="btn btn-outline">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span data-ar="الكورسات" data-en="Courses">Courses</span>
+                </a>
+            </div>
+        </div>
+        <div class="hero-scroll">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <section class="section gallery-section" id="gallery">
+        <div class="section-header fade-in">
+            <div class="section-label" data-ar="المعرض" data-en="Gallery">Gallery</div>
+            <h2 class="section-title" data-ar="صور مسيحية قديمة" data-en="Ancient Christian Images">Ancient Christian Images</h2>
+            <p class="section-desc" data-ar="مجموعة من أهم الأعمال الفنية المسيحية من العصور الأولى" data-en="A collection of the most important Christian artworks from the early ages">A collection of the most important Christian artworks from the early ages</p>
+        </div>
+
+        <div class="gallery-filters fade-in">
+            <button class="filter-btn active" data-filter="all" data-ar="الكل" data-en="All">All</button>
+            <button class="filter-btn" data-filter="catacomb" data-ar="الكاتاكومب" data-en="Catacombs">Catacombs</button>
+            <button class="filter-btn" data-filter="icon" data-ar="أيقونات" data-en="Icons">Icons</button>
+            <button class="filter-btn" data-filter="mosaic" data-ar="فسيفساء" data-en="Mosaics">Mosaics</button>
+            <button class="filter-btn" data-filter="sarcophagus" data-ar="توابيت" data-en="Sarcophagi">Sarcophagi</button>
+        </div>
+
+        <div class="gallery-grid" id="galleryGrid"></div>
+    </section>
+
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightboxClose" aria-label="Close">
+            <i class="fas fa-times"></i>
+        </button>
+        <div class="lightbox-content">
+            <img class="lightbox-img" id="lightboxImg" src="" alt="">
+            <div class="lightbox-info">
+                <h3 class="lightbox-title" id="lightboxTitle"></h3>
+                <div class="lightbox-meta" id="lightboxMeta"></div>
+                <p class="lightbox-desc" id="lightboxDesc"></p>
+            </div>
+        </div>
+    </div>
+
+    <section class="section timeline-section" id="timeline">
+        <div class="section-header fade-in">
+            <div class="section-label" data-ar="التاريخ" data-en="History">History</div>
+            <h2 class="section-title" data-ar="خط الزمن" data-en="Timeline">Timeline</h2>
+            <p class="section-desc" data-ar="رحلة تطور الفن المسيحي عبر العصور" data-en="A journey through the evolution of Christian art across the ages">A journey through the evolution of Christian art across the ages</p>
+        </div>
+
+        <div class="timeline" id="timelineContainer"></div>
+    </section>
+
+    <section class="section courses-section" id="courses">
+        <div class="section-header fade-in">
+            <div class="section-label" data-ar="التعلم" data-en="Learning">Learning</div>
+            <h2 class="section-title" data-ar="كورسات الفن المسيحي" data-en="Christian Art Courses">Christian Art Courses</h2>
+            <p class="section-desc" data-ar="مصادر تعليمية لتعمق فهمك في تاريخ الفن المسيحي" data-en="Educational resources to deepen your understanding of Christian art history">Educational resources to deepen your understanding of Christian art history</p>
+        </div>
+
+        <div class="courses-grid" id="coursesGrid"></div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <i class="fas fa-cross"></i>
+                <span data-ar="الفن المسيحي المبكر" data-en="Early Christian Art">Early Christian Art</span>
+            </div>
+            <p class="footer-text" data-ar="استكشاف جمال وعمق الفن المسيحي منذ القرن الثاني الميلادي. مصدر تعليمي مفتوح لكل من يرغب في فهم تاريخ الإيمان عبر الفن." data-en="Exploring the beauty and depth of Christian art since the 2nd century. An open educational resource for anyone wishing to understand the history of faith through art.">
+                Exploring the beauty and depth of Christian art since the 2nd century. An open educational resource for anyone wishing to understand the history of faith through art.
+            </p>
+            <div class="footer-links">
+                <a href="#gallery" data-ar="المعرض" data-en="Gallery">Gallery</a>
+                <a href="#timeline" data-ar="التاريخ" data-en="Timeline">Timeline</a>
+                <a href="#courses" data-ar="الكورسات" data-en="Courses">Courses</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const translations = {
+            ar: {
+                loading: "جارٍ التحميل...",
+                siteTitle: "الفن المسيحي المبكر",
+                nav: { home: "الرئيسية", gallery: "المعرض", timeline: "التاريخ", courses: "الكورسات" },
+                hero: { subtitle: "اكتشف جمال الإيمان", title: "الفن المسيحي المبكر", desc: "رحلة عبر الزمن لاستكشاف أقدم الأعمال الفنية المسيحية من القرن الثاني حتى السابع الميلادي. من الكاتاكومب الرومانية إلى أيقونات سيناء، اكتشف كيف عبر المؤمنون الأوائل عن إيمانهم بالفن.", explore: "استكشف المعرض", coursesBtn: "الكورسات" },
+                gallery: { label: "المعرض", title: "صور مسيحية قديمة", desc: "مجموعة من أهم الأعمال الفنية المسيحية من العصور الأولى", all: "الكل", catacomb: "الكاتاكومب", icon: "أيقونات", mosaic: "فسيفساء", sarcophagus: "توابيت" },
+                timeline: { label: "التاريخ", title: "خط الزمن", desc: "رحلة تطور الفن المسيحي عبر العصور" },
+                courses: { label: "التعلم", title: "كورسات الفن المسيحي", desc: "مصادر تعليمية لتعمق فهمك في تاريخ الفن المسيحي", free: "مجاني", start: "ابدأ الآن", details: "التفاصيل" },
+                footer: { text: "استكشاف جمال وعمق الفن المسيحي منذ القرن الثاني الميلادي. مصدر تعليمي مفتوح لكل من يرغب في فهم تاريخ الإيمان عبر الفن." },
+                lightbox: { close: "إغلاق" }
+            },
+            en: {
+                loading: "Loading...",
+                siteTitle: "Early Christian Art",
+                nav: { home: "Home", gallery: "Gallery", timeline: "Timeline", courses: "Courses" },
+                hero: { subtitle: "Discover the Beauty of Faith", title: "Early Christian Art", desc: "A journey through time to explore the earliest Christian artworks from the 2nd to the 7th century. From the Roman catacombs to the icons of Sinai, discover how the first believers expressed their faith through art.", explore: "Explore Gallery", coursesBtn: "Courses" },
+                gallery: { label: "Gallery", title: "Ancient Christian Images", desc: "A collection of the most important Christian artworks from the early ages", all: "All", catacomb: "Catacombs", icon: "Icons", mosaic: "Mosaics", sarcophagus: "Sarcophagi" },
+                timeline: { label: "History", title: "Timeline", desc: "A journey through the evolution of Christian art across the ages" },
+                courses: { label: "Learning", title: "Christian Art Courses", desc: "Educational resources to deepen your understanding of Christian art history", free: "Free", start: "Start Now", details: "Details" },
+                footer: { text: "Exploring the beauty and depth of Christian art since the 2nd century. An open educational resource for anyone wishing to understand the history of faith through art." },
+                lightbox: { close: "Close" }
+            }
+        };
+
+        let currentLang = 'en';
+
+        const galleryData = [
+            {
+                id: 1, category: "icon",
+                title: { ar: "المسيح بانتوكراتور", en: "Christ Pantocrator" },
+                date: { ar: "القرن السادس الميلادي", en: "6th Century AD" },
+                location: { ar: "دير سانت كاترين، جبل سيناء", en: "St. Catherine's Monastery, Mount Sinai" },
+                image: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Christ_Pantocrator_-_Saint_Catherine%27s_Monastery.jpg/800px-Christ_Pantocrator_-_Saint_Catherine%27s_Monastery.jpg",
+                desc: { ar: "أقدم أيقونة مسيحية معروفة على الإطلاق، مرسومة بالشمع (الإنكوستيك) على لوح خشبي. تظهر وجه المسيح بانقسام مميز: نصف يعبّر عن اللاهوتية والنصف الآخر عن الإنسانية.", en: "The oldest known Christian icon, painted in encaustic on a wooden panel. It shows Christ's face with a distinctive split: one half expressing divinity and the other humanity." }
+            },
+            {
+                id: 2, category: "catacomb",
+                title: { ar: "الراعي الصالح", en: "The Good Shepherd" },
+                date: { ar: "250-300 م", en: "250-300 AD" },
+                location: { ar: "كاتاكومب بريسيلا، روما", en: "Catacomb of Priscilla, Rome" },
+                image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Good_Shepherd_Catacomb_of_Priscilla.jpg/800px-Good_Shepherd_Catacomb_of_Priscilla.jpg",
+                desc: { ar: "أشهر رموز المسيحية المبكرة، يصوّر يسوع شابا بلا لحية يحمل خروفا على كتفيه. مستوحى من الفن الروماني الكلاسيكي ويعبّر عن الرعاية الإلهية.", en: "The most famous symbol of early Christianity, depicting Jesus as a beardless young man carrying a sheep on his shoulders. Inspired by classical Roman art, it expresses divine care." }
+            },
+            {
+                id: 3, category: "catacomb",
+                title: { ar: "يسوع يشفي المفلوج", en: "Jesus Healing the Paralytic" },
+                date: { ar: "235 م", en: "235 AD" },
+                location: { ar: "كنيسة دورا أوروبوس، سوريا", en: "Dura-Europos Church, Syria" },
+                image: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Dura-Europos_christian_painting.jpg/800px-Dura-Europos_christian_painting.jpg",
+                desc: { ar: "أقدم تصوير معروف ليسوع في فن مسيحي، يظهره شابا قصير الشعر يحمل عصا سحرية (عصا موسى) ويشفي المفلوج. من كنيسة دورا أوروبوس، أقدم كنيسة مسيحية معروفة.", en: "The oldest known depiction of Jesus in Christian art, showing him as a short-haired young man holding a magic wand (Moses' staff) and healing the paralytic. From Dura-Europos, the oldest known Christian church." }
+            },
+            {
+                id: 4, category: "sarcophagus",
+                title: { ar: "تابوت يونيوس باسوس", en: "Sarcophagus of Junius Bassus" },
+                date: { ar: "359 م", en: "359 AD" },
+                location: { ar: "كاتدرائية القديس بطرس، الفاتيكان", en: "St. Peter's Basilica, Vatican" },
+                image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Sarcophagus_of_Junius_Bassus.jpg/800px-Sarcophagus_of_Junius_Bassus.jpg",
+                desc: { ar: "تابوت رخامي فاخر لروماني اعتنق المسيحية قبل وفاته. يحتوي على نقوش معقدة تصور مشاهد من العهدين القديم والجديد، من أهم آثار الفن المسيحي المبكر.", en: "A luxurious marble sarcophagus for a Roman who converted to Christianity before his death. It contains intricate carvings depicting scenes from both the Old and New Testaments, one of the most important artifacts of early Christian art." }
+            },
+            {
+                id: 5, category: "catacomb",
+                title: { ar: "إحياء لعازر", en: "The Raising of Lazarus" },
+                date: { ar: "القرن الثالث الميلادي", en: "3rd Century AD" },
+                location: { ar: "كاتاكومب الجورداني، روما", en: "Catacomb of the Jordani, Rome" },
+                image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Raising_of_Lazarus_catacomb.jpg/800px-Raising_of_Lazarus_catacomb.jpg",
+                desc: { ar: "جدارية من الكاتاكومب تصور معجزة إحياء لعازر. يظهر يسوع وهو يحمل عصا (فيرجا) مشيرا إليها، وهو تقليد روماني في تصوير المعجزات.", en: "A catacomb fresco depicting the miracle of raising Lazarus. Jesus is shown holding a staff (virga) pointing at it, a Roman tradition in depicting miracles." }
+            },
+            {
+                id: 6, category: "sarcophagus",
+                title: { ar: "صندوق بريشيا", en: "Brescia Casket" },
+                date: { ar: "القرن الرابع الميلادي", en: "4th Century AD" },
+                location: { ar: "متحف بريشيا، إيطاليا", en: "Brescia Museum, Italy" },
+                image: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Brescia_Casket.jpg/800px-Brescia_Casket.jpg",
+                desc: { ar: "صندوق عاجي منحوت ببراعة يحتوي على مشاهد من حياة المسيح. يعتقد أنه من إنتاج عهد القديس أمبروسيوس في ميلانو، مقر البلاط الإمبراطوري آنذاك.", en: "A masterfully carved ivory casket containing scenes from the life of Christ. Believed to be from the era of St. Ambrose in Milan, the seat of the imperial court at the time." }
+            },
+            {
+                id: 7, category: "mosaic",
+                title: { ar: "فسيفساء العذراء والطفل", en: "Virgin and Child Mosaic" },
+                date: { ar: "432 م", en: "432 AD" },
+                location: { ar: "سانتا ماريا ماجيوري، روما", en: "Santa Maria Maggiore, Rome" },
+                image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Santa_Maria_Maggiore_mosaic.jpg/800px-Santa_Maria_Maggiore_mosaic.jpg",
+                desc: { ar: "من أقدم الفسيفساء المسيحية في روما، تزين جدران كنيسة سانتا ماريا ماجيوري. تظهر تطور الفن المسيحي بعد مرسوم ميلانو وشرعنة المسيحية.", en: "Among the oldest Christian mosaics in Rome, adorning the walls of Santa Maria Maggiore. It shows the development of Christian art after the Edict of Milan and the legalization of Christianity." }
+            },
+            {
+                id: 8, category: "catacomb",
+                title: { ar: "يونس والحوت", en: "Jonah and the Whale" },
+                date: { ar: "القرن الثالث الميلادي", en: "3rd Century AD" },
+                location: { ar: "كاتاكومب روما", en: "Catacombs of Rome" },
+                image: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Jonah_and_the_Whale_catacomb.jpg/800px-Jonah_and_the_Whale_catacomb.jpg",
+                desc: { ar: "أحد أكثر الرموز شيوعا في الفن المسيحي المبكر. يعبّر يونس المبتلع من الحوت عن قيامة المسيح بعد ثلاثة أيام، وهو رمز قوي للخلاص والحياة الأبدية.", en: "One of the most common symbols in early Christian art. Jonah swallowed by the whale represents Christ's resurrection after three days, a powerful symbol of salvation and eternal life." }
+            },
+            {
+                id: 9, category: "catacomb",
+                title: { ar: "الشباب الثلاثة في الأتون", en: "Three Youths in the Fiery Furnace" },
+                date: { ar: "القرن الثالث الميلادي", en: "3rd Century AD" },
+                location: { ar: "كاتاكومب بريسيلا، روما", en: "Catacomb of Priscilla, Rome" },
+                image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Three_Youths_Fiery_Furnace.jpg/800px-Three_Youths_Fiery_Furnace.jpg",
+                desc: { ar: "جدارية تصور قصة الشباب الثلاثة من سفر دانيال. رمز مسيحي مبكر للخلاص والحماية الإلهية في وجه الاضطهاد الروماني.", en: "A fresco depicting the story of the three youths from the Book of Daniel. An early Christian symbol of salvation and divine protection in the face of Roman persecution." }
+            }
+        ];
+
+        const timelineData = [
+            {
+                date: { ar: "القرن الثاني الميلادي", en: "2nd Century AD" },
+                text: { ar: "أولى الأعمال الفنية المسيحية تظهر في كاتاكومب روما، مستخدمة رموزا سرية مثل السمكة (إخثوس) والطاووس.", en: "The first Christian artworks appear in the Roman catacombs, using secret symbols such as the fish (Ichthys) and the peacock." }
+            },
+            {
+                date: { ar: "235 م - كنيسة دورا أوروبوس", en: "235 AD - Dura-Europos Church" },
+                text: { ar: "أقدم كنيسة مسيحية معروفة في سوريا، تحتوي على جداريات تصور يسوع شافي المفلوج.", en: "The oldest known Christian church in Syria, containing frescoes depicting Jesus healing the paralytic." }
+            },
+            {
+                date: { ar: "313 م - مرسوم ميلانو", en: "313 AD - Edict of Milan" },
+                text: { ar: "قسطنطين يشرع المسيحية، مما يسمح ببناء الكنائس العامة وازدهار الفن المسيحي.", en: "Constantine legalizes Christianity, allowing the construction of public churches and the flourishing of Christian art." }
+            },
+            {
+                date: { ar: "القرن الرابع", en: "4th Century" },
+                text: { ar: "ظهور التوابيت المنحوتة مثل تابوت يونيوس باسوس (359 م) والفسيفساء الذهبية.", en: "The appearance of carved sarcophagi such as the Sarcophagus of Junius Bassus (359 AD) and golden mosaics." }
+            },
+            {
+                date: { ar: "القرن السادس", en: "6th Century" },
+                text: { ar: "أقدم أيقونة مسيحية معروفة: المسيح بانتوكراتور من دير سانت كاترين بجبل سيناء.", en: "The oldest known Christian icon: Christ Pantocrator from St. Catherine's Monastery at Mount Sinai." }
+            }
+        ];
+
+        const coursesData = [
+            {
+                id: 1,
+                title: { ar: "تاريخ ولاهوت الأيقونة", en: "History & Theology of the Icon" },
+                provider: "iconography.online",
+                icon: "fas fa-palette",
+                desc: { ar: "كورس نظري متكامل يغطي تاريخ الفن المسيحي من القرون الأولى، يتضمن 6 محاضرات فيديو تفاعلية مع مناقشات حية.", en: "A comprehensive theoretical course covering the history of Christian art from the early centuries, including 6 interactive video lectures with live discussions." },
+                duration: { ar: "6 أسابيع", en: "6 Weeks" },
+                lectures: { ar: "6 محاضرات", en: "6 Lectures" },
+                level: { ar: "جميع المستويات", en: "All Levels" },
+                price: "$80",
+                free: false,
+                link: "https://iconography.online/theology-of-icon.html",
+                badge: { ar: "أونلاين", en: "Online" }
+            },
+            {
+                id: 2,
+                title: { ar: "جمال الإيمان - تاريخ الفن المسيحي", en: "Beauty of Faith - Christian Art History" },
+                provider: "Institute of Catholic Culture",
+                icon: "fas fa-church",
+                desc: { ar: "كورس مجاني أونلاين يستكشف جمال الفن المقدس عبر العصور. يتناول تطور الأيقونات والفن المسيحي منذ البدايات حتى العصر الحديث.", en: "A free online course exploring the beauty of sacred art through the ages. It covers the evolution of icons and Christian art from the beginnings to the modern era." },
+                duration: { ar: "فصل دراسي كامل", en: "Full Semester" },
+                lectures: { ar: "محاضرات مسجلة", en: "Recorded Lectures" },
+                level: { ar: "مبتدئ", en: "Beginner" },
+                price: { ar: "مجاني", en: "Free" },
+                free: true,
+                link: "https://instituteofcatholicculture.org/the-beauty-of-faith",
+                badge: { ar: "مجاني", en: "Free" }
+            },
+            {
+                id: 3,
+                title: { ar: "الفن المسيحي المبكر والبيزنطي", en: "Early Christian & Byzantine Art" },
+                provider: "Smarthistory (Khan Academy)",
+                icon: "fas fa-landmark",
+                desc: { ar: "مقالات وفيديوهات تعليمية مجانية تغطي الفن المسيحي من الكاتاكومب حتى الفن البيزنطي. يتضمن تحليلا مفصلا للأعمال الفنية الرئيسية.", en: "Free educational articles and videos covering Christian art from the catacombs to Byzantine art. Includes detailed analysis of major artworks." },
+                duration: { ar: "ذاتي السرعة", en: "Self-Paced" },
+                lectures: { ar: "مقالات + فيديو", en: "Articles + Video" },
+                level: { ar: "جميع المستويات", en: "All Levels" },
+                price: { ar: "مجاني", en: "Free" },
+                free: true,
+                link: "https://smarthistory.org/early-christian-art/",
+                badge: { ar: "مجاني", en: "Free" }
+            },
+            {
+                id: 4,
+                title: { ar: "Early Christian Art & Architecture", en: "Early Christian Art & Architecture" },
+                provider: "George Mason University",
+                icon: "fas fa-university",
+                desc: { ar: "كورس أكاديمي جامعي يدرس الفن المسيحي والبيزنطي بعد سقوط الإمبراطورية الرومانية. يتناول العمارة والأيقونات والجدل حول الصور.", en: "An academic university course studying Christian and Byzantine art after the fall of the Roman Empire. Covers architecture, icons, and the iconoclastic controversy." },
+                duration: { ar: "فصل دراسي", en: "Semester" },
+                lectures: { ar: "3 ساعات معتمدة", en: "3 Credit Hours" },
+                level: { ar: "جامعي", en: "University" },
+                price: { ar: "جامعي", en: "University" },
+                free: false,
+                link: "http://historyarthistory.gmu.edu/courses/arth333",
+                badge: { ar: "أكاديمي", en: "Academic" }
+            },
+            {
+                id: 5,
+                title: { ar: "Early Christian Art - Video Lesson", en: "Early Christian Art - Video Lesson" },
+                provider: "Study.com",
+                icon: "fas fa-video",
+                desc: { ar: "درس فيديو مكثف يغطي تاريخ الفن المسيحي المبكر، الرموز، والأعمال الفنية الرئيسية. مناسب للمراجعة السريعة أو التعلم الذاتي.", en: "An intensive video lesson covering the history of early Christian art, symbols, and major artworks. Suitable for quick review or self-study." },
+                duration: { ar: "درس واحد", en: "One Lesson" },
+                lectures: { ar: "فيديو + اختبار", en: "Video + Quiz" },
+                level: { ar: "مبتدئ", en: "Beginner" },
+                price: { ar: "اشتراك", en: "Subscription" },
+                free: false,
+                link: "https://study.com/academy/lesson/video/early-christian-art-and-architecture.html",
+                badge: { ar: "فيديو", en: "Video" }
+            },
+            {
+                id: 6,
+                title: { ar: "الأيقونات وتفسيرها", en: "Icons and Their Interpretation" },
+                provider: "Russian Icons Blog",
+                icon: "fas fa-book-open",
+                desc: { ar: "مدونة تعليمية متخصصة في تاريخ الأيقونات والفن المسيحي. تقدم تحليلا عميقا لتطور الأيقونات من الفن المسيحي المبكر حتى العصر البيزنطي.", en: "An educational blog specializing in the history of icons and Christian art. Offers deep analysis of the evolution of icons from early Christian art to the Byzantine era." },
+                duration: { ar: "مقالات متعددة", en: "Multiple Articles" },
+                lectures: { ar: "محتوى مستمر", en: "Ongoing Content" },
+                level: { ar: "متوسط", en: "Intermediate" },
+                price: { ar: "مجاني", en: "Free" },
+                free: true,
+                link: "https://russianicons.wordpress.com/tag/early-christian-art/",
+                badge: { ar: "مدونة", en: "Blog" }
+            }
+        ];
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'ar' ? 'en' : 'ar';
+            applyLanguage();
+            localStorage.setItem('eca_lang', currentLang);
+        }
+
+        function applyLanguage() {
+            const html = document.documentElement;
+            const body = document.body;
+            const langLabel = document.getElementById('langLabel');
+
+            
+
+            document.querySelectorAll('[data-ar][data-en]').forEach(el => {
+                if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                    el.placeholder = el.getAttribute('data-' + currentLang);
+                } else {
+                    el.textContent = el.getAttribute('data-' + currentLang);
+                }
+            });
+
+            renderGallery(document.querySelector('.filter-btn.active')?.dataset.filter || 'all');
+            renderTimeline();
+            renderCourses();
+        }
+
+        function getText(obj) {
+            return typeof obj === 'object' ? obj[currentLang] : obj;
+        }
+
+        function getCategoryName(cat) {
+            const names = {
+                ar: { catacomb: 'كاتاكومب', icon: 'أيقونة', mosaic: 'فسيفساء', sarcophagus: 'تابوت' },
+                en: { catacomb: 'Catacomb', icon: 'Icon', mosaic: 'Mosaic', sarcophagus: 'Sarcophagus' }
+            };
+            return names[currentLang][cat] || cat;
+        }
+
+        function renderGallery(filter) {
+            const grid = document.getElementById('galleryGrid');
+            const items = filter === 'all' ? galleryData : galleryData.filter(item => item.category === filter);
+
+            grid.innerHTML = items.map(item => {
+                const title = getText(item.title);
+                const date = getText(item.date);
+                const location = getText(item.location);
+                return '<div class="gallery-item fade-in" data-id="' + item.id + '">' +
+                    '<img src="' + item.image + '" alt="' + title + '" loading="lazy">' +
+                    '<span class="gallery-tag">' + getCategoryName(item.category) + '</span>' +
+                    '<div class="gallery-overlay">' +
+                    '<h3 class="gallery-title">' + title + '</h3>' +
+                    '<div class="gallery-meta">' + date + ' | ' + location + '</div>' +
+                    '</div></div>';
+            }).join('');
+
+            grid.querySelectorAll('.gallery-item').forEach(item => {
+                item.addEventListener('click', () => openLightbox(parseInt(item.dataset.id)));
+            });
+
+            setTimeout(() => {
+                grid.querySelectorAll('.fade-in').forEach(el => el.classList.add('visible'));
+            }, 100);
+        }
+
+        function setupFilters() {
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    renderGallery(btn.dataset.filter);
+                });
+            });
+        }
+
+        function openLightbox(id) {
+            const item = galleryData.find(g => g.id === id);
+            if (!item) return;
+
+            document.getElementById('lightboxImg').src = item.image;
+            document.getElementById('lightboxTitle').textContent = getText(item.title);
+            document.getElementById('lightboxMeta').textContent = getText(item.date) + ' | ' + getText(item.location) + ' | ' + getCategoryName(item.category);
+            document.getElementById('lightboxDesc').textContent = getText(item.desc);
+            document.getElementById('lightbox').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function setupLightbox() {
+            document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+            document.getElementById('lightbox').addEventListener('click', (e) => {
+                if (e.target.id === 'lightbox') closeLightbox();
+            });
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') closeLightbox();
+            });
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function renderTimeline() {
+            const container = document.getElementById('timelineContainer');
+            container.innerHTML = timelineData.map((item, index) => {
+                const date = getText(item.date);
+                const text = getText(item.text);
+                return '<div class="timeline-item fade-in">' +
+                    '<div class="timeline-dot"></div>' +
+                    '<div class="timeline-content">' +
+                    '<div class="timeline-date">' + date + '</div>' +
+                    '<div class="timeline-text">' + text + '</div>' +
+                    '</div></div>';
+            }).join('');
+        }
+
+        function renderCourses() {
+            const grid = document.getElementById('coursesGrid');
+            const t = translations[currentLang].courses;
+            grid.innerHTML = coursesData.map(course => {
+                const title = getText(course.title);
+                const desc = getText(course.desc);
+                const duration = getText(course.duration);
+                const lectures = getText(course.lectures);
+                const level = getText(course.level);
+                const price = getText(course.price);
+                const badge = getText(course.badge);
+                return '<div class="course-card fade-in">' +
+                    (badge ? '<span class="course-badge">' + badge + '</span>' : '') +
+                    '<div class="course-header">' +
+                    '<div class="course-icon"><i class="' + course.icon + '"></i></div>' +
+                    '<h3 class="course-title">' + title + '</h3>' +
+                    '<div class="course-provider">' + course.provider + '</div>' +
+                    '</div>' +
+                    '<div class="course-body">' +
+                    '<p class="course-desc">' + desc + '</p>' +
+                    '<div class="course-meta">' +
+                    '<div class="course-meta-item"><i class="fas fa-clock"></i><span>' + duration + '</span></div>' +
+                    '<div class="course-meta-item"><i class="fas fa-book"></i><span>' + lectures + '</span></div>' +
+                    '<div class="course-meta-item"><i class="fas fa-signal"></i><span>' + level + '</span></div>' +
+                    '</div></div>' +
+                    '<div class="course-footer">' +
+                    '<div class="course-price ' + (course.free ? 'free' : '') + '">' + price + '</div>' +
+                    '<a href="' + course.link + '" target="_blank" class="course-link">' +
+                    (course.free ? t.start : t.details) +
+                    ' <i class="fas fa-arrow-left"></i></a>' +
+                    '</div></div>';
+            }).join('');
+        }
+
+        function setupNavigation() {
+            const links = document.querySelectorAll('.nav-links a');
+            const sections = document.querySelectorAll('section[id]');
+
+            links.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const target = document.querySelector(link.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                        links.forEach(l => l.classList.remove('active'));
+                        link.classList.add('active');
+                    }
+                });
+            });
+
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop - 100;
+                    if (scrollY >= sectionTop) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                links.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === '#' + current) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+        }
+
+        function setupScrollAnimations() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        }
+
+        function setupMobileMenu() {
+            const btn = document.getElementById('mobileMenuBtn');
+            const nav = document.getElementById('navLinks');
+
+            btn.addEventListener('click', () => {
+                nav.classList.toggle('active');
+                const icon = btn.querySelector('i');
+                icon.classList.toggle('fa-bars');
+                icon.classList.toggle('fa-times');
+            });
+
+            nav.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    nav.classList.remove('active');
+                    const icon = btn.querySelector('i');
+                    icon.classList.add('fa-bars');
+                    icon.classList.remove('fa-times');
+                });
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('eca_lang');
+            if (savedLang) {
+                currentLang = savedLang;
+            } else {
+                currentLang = 'en';
+                localStorage.setItem('eca_lang', 'en');
+            }
+            applyLanguage();
+
+            setTimeout(() => {
+                document.getElementById('loading').classList.add('hidden');
+            }, 1500);
+
+            renderGallery('all');
+            renderTimeline();
+            renderCourses();
+            setupFilters();
+            setupLightbox();
+            setupNavigation();
+            setupScrollAnimations();
+            setupMobileMenu();
+        });
+    </script>
+</body>
+</html>
