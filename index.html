@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>Coptic Orthodox Cultural Centre</title>
+    <link rel="stylesheet" href="style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@300;400;600;700&family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body dir="ltr">
+    <div class="loading-overlay" id="loading">
+        <div class="loading-spinner"></div>
+        <div class="loading-text" data-ar="جارٍ التحميل..." data-en="Loading...">Loading...</div>
+    </div>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <i class="fas fa-cross"></i>
+                <span data-ar="الفن المسيحي المبكر" data-en="Coptic orthodox cultural centre">Coptic orthodox cultural
+                    centre
+                </span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" class="active" data-ar="الرئيسية" data-en="Home">Home</a></li>
+                <li><a href="#timeline" data-ar="التاريخ" data-en="Timeline">Timeline</a></li>
+                <li><a href="#courses" data-ar="الكورسات" data-en="Courses">Courses</a></li>
+            </ul>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-subtitle" data-ar="اكتشف جمال الإيمان" data-en="Discover the Beauty of Faith">Discover the
+                Beauty of Faith</div>
+            <h1 class="hero-title" data-ar="الفن المسيحي المبكر" data-en="Coptic orthodox cultural centre">Coptic
+                orthodox cultural centre
+            </h1>
+            <p class="hero-desc">
+                <a href="about.html" data-en="About US">About US</a>
+            </p>
+            <div class="hero-buttons">
+                <a href="#courses" class="btn btn-primary">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span data-ar="الكورسات" data-en="Courses">Courses</span>
+                </a>
+                <a href="#timeline" class="btn btn-outline">
+                    <i class="fas fa-history"></i>
+                    <span data-ar="التاريخ" data-en="Timeline">Timeline</span>
+                </a>
+            </div>
+        </div>
+        <div class="hero-scroll">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightboxClose" aria-label="Close">
+            <i class="fas fa-times"></i>
+        </button>
+        <div class="lightbox-content">
+            <img class="lightbox-img" id="lightboxImg" src="" alt="">
+            <div class="lightbox-info">
+                <h3 class="lightbox-title" id="lightboxTitle"></h3>
+                <div class="lightbox-meta" id="lightboxMeta"></div>
+                <p class="lightbox-desc" id="lightboxDesc"></p>
+            </div>
+        </div>
+    </div>
+
+    <section class="section timeline-section" id="timeline">
+        <div class="section-header fade-in">
+            <div class="section-label">History</div>
+            <h2 class="section-title">Timeline</h2>
+            <p class="section-desc">The Holy Family Journey in Egypt</p>
+        </div>
+
+        <!-- Two-column: timeline left | image right -->
+        <div class="timeline-layout fade-in">
+            <div class="timeline" id="timelineContainer"></div>
+
+            <div class="timeline-image-panel">
+                <div class="timeline-image-frame">
+                    <!-- ↓ Change this src to any image you want ↓ -->
+                    <img src="./img/phot-3.jpeg"
+                         alt="The Holy Family Journey in Egypt"
+                         class="timeline-img">
+                    <div class="timeline-image-caption">
+                        <i class="fas fa-cross"></i>
+                        The Holy Family in Egypt
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="courses-section" id="courses">
+        <div class="courses-inner">
+            <div class="section-header fade-in">
+                <div class="section-label" data-ar="التعلم" data-en="Learning">Learning</div>
+                <h2 class="section-title" data-ar="كورساتنا" data-en="Our Courses">Our Courses</h2>
+                <p class="section-desc" data-ar="اكتشف مجموعتنا من الكورسات المتنوعة"
+                    data-en="Discover our diverse range of cultural and creative courses">Discover our diverse range of
+                    cultural and creative courses</p>
+            </div>
+
+            <div class="courses-grid" id="coursesGrid"></div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <i class="fas fa-cross"></i>
+                <span data-ar="الفن المسيحي المبكر" data-en="Coptic orthodox cultural centre">
+                    Coptic orthodox cultural centre
+                </span>
+            </div>
+            <p class="footer-text"
+                data-ar="استكشاف جمال وعمق الفن المسيحي منذ القرن الثاني الميلادي. مصدر تعليمي مفتوح لكل من يرغب في فهم تاريخ الإيمان عبر الفن."
+                data-en="Exploring the beauty and depth of Christian art since the 2nd century. An open educational resource for anyone wishing to understand the history of faith through art.">
+                Exploring the beauty and depth of Christian art since the 2nd century. An open educational resource for
+                anyone wishing to understand the history of faith through art.
+            </p>
+            <div class="footer-links">
+                <a href="#timeline" data-ar="التاريخ" data-en="Timeline">Timeline</a>
+                <a href="#courses" data-ar="الكورسات" data-en="Courses">Courses</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="javaScript.js"></script>
+</body>
+
+</html>
